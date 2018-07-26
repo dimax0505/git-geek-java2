@@ -2,7 +2,7 @@ package ru.geekbrains.maksimov.geek;
 
 import java.awt.*;
 
-public class Sprite {
+public class Sprites {
     protected float x;
     protected float y;
     protected float halfWidth;

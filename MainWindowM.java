@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class MainWindow extends JFrame {
+public class MainWindowM extends JFrame {
     private static final int POS_X = 600;
     private static final int POS_Y = 200;
     private static final int WINDOW_WIDTH = 800;
@@ -15,12 +15,12 @@ public class MainWindow extends JFrame {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new MainWindow();
+                new MainWindowM();
             }
         });
     }
 
-    MainWindow() {
+    MainWindowM() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(POS_X,POS_Y,WINDOW_WIDTH,WINDOW_HEIGHT);
         setTitle("Пузырики");
@@ -32,10 +32,10 @@ public class MainWindow extends JFrame {
             public void mouseClicked (MouseEvent e) {
                 super.mouseClicked(e);
                 if (e.getButton()==MouseEvent.BUTTON3) {
-                    sprites[currentBalls]=new Ball();
+                    sprites[currentBalls]=new OneBall();
                     currentBalls++;
                     if (currentBalls==sprites.length-5){
-                        Sprite[] spritestemp = new Sprite[currentBalls*2];
+                        Sprites[] spritestemp = new Sprites[currentBalls*2];
                         for (int i=0; i<sprites.length; i++) {
                             spritestemp[i]=sprites[i];
                         }
@@ -43,8 +43,10 @@ public class MainWindow extends JFrame {
                     }
                 }
                 if (e.getButton()==MouseEvent.BUTTON1) {
-                    sprites[currentBalls]=null;
-                    currentBalls--;
+                    if (currentBalls>0) {
+                        sprites[currentBalls] = null;
+                        currentBalls--;
+                    }
                 }
 
             }
@@ -55,14 +57,14 @@ public class MainWindow extends JFrame {
     }
     int currentBalls = 5;
     int maxBalls = 20;
-    Sprite[] sprites = new Sprite[maxBalls];
-    Background background;
+    Sprites[] sprites = new Sprites[maxBalls];
+    Backgrounds backgrounds;
 
     private void initGame() {
         for (int i = 0; i < currentBalls; i++) {
-            sprites[i] = new Ball();
+            sprites[i] = new OneBall();
         }
-        background = new Background();
+        backgrounds = new Backgrounds();
     }
 
     public void onDrawFrame(GameCanvas canvas, Graphics g, float deltaTime) {
@@ -71,14 +73,14 @@ public class MainWindow extends JFrame {
     }
 
     private void update(GameCanvas canvas, float deltaTime) {
-        background.update();
+        backgrounds.update();
         for (int i = 0; i < currentBalls; i++) {
             sprites[i].update(canvas, deltaTime);
         }
     }
 
     private void render(GameCanvas canvas, Graphics g) {
-        background.render(canvas,g);
+        backgrounds.render(canvas,g);
         for (int i = 0; i < currentBalls; i++) {
             sprites[i].render(canvas, g);
 

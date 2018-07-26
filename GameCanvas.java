@@ -4,11 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameCanvas extends JPanel {
-    private MainWindow mainWindow;
+    private MainWindowM mainWindowM;
     private long lastFrameTime;
 
-    GameCanvas(MainWindow mainWindow) {
-        this.mainWindow = mainWindow;
+    GameCanvas(MainWindowM mainWindowM) {
+        this.mainWindowM = mainWindowM;
         lastFrameTime = System.nanoTime();
         setBackground(Color.BLUE);
     }
@@ -28,7 +28,7 @@ public class GameCanvas extends JPanel {
             e.printStackTrace();
         }
 
-        mainWindow.onDrawFrame(this, g, deltaTime);
+        mainWindowM.onDrawFrame(this, g, deltaTime);
 
         repaint();
     }
