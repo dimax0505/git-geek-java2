@@ -2,12 +2,12 @@ package ru.geekbrains.maksimov.geek;
 
 import java.awt.*;
 
-public class Ball extends Sprite {
+public class OneBall extends Sprites {
     private float vx=150 + (float)(Math.random() * 200f);
     private float vy=150 + (float)(Math.random() * 200f);
     private final Color color = new Color((int)(Math.random() * 255),(int)(Math.random() * 255),(int)(Math.random() * 255));
 
-    Ball(){
+    OneBall(){
        halfHeight = 20 + (float)(Math.random() * 50f);
        halfWidth = halfHeight;
     }

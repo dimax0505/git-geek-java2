@@ -3,7 +3,7 @@ package ru.geekbrains.maksimov.geek;
 import java.awt.*;
 import java.util.Random;
 
-public class Background {
+public class Backgrounds {
     protected int r = 1;
     protected int g = 1;
     protected int b = 1;
@@ -11,7 +11,7 @@ public class Background {
     private Color color = new Color(r,g,b);
     private Random random = new Random();
 
-    Background() {}
+    Backgrounds() {}
 
     int change (int ch){
        switch (ch){
