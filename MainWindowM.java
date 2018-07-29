@@ -57,7 +57,7 @@ public class MainWindowM extends JFrame {
     }
     int currentBalls = 5;
     int maxBalls = 20;
-    Sprites[] sprites = new Sprites[maxBalls];
+    public Sprites[] sprites = new Sprites[maxBalls];
     Backgrounds backgrounds;
 
     private void initGame() {

@@ -1,5 +1,7 @@
 package ru.geekbrains.maksimov.geek;
 
+import ru.geekbrains.maksimov.lesson1.Background;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -20,6 +22,7 @@ public class GameCanvas extends JPanel {
         long currentTime = System.nanoTime();
         float deltaTime = (currentTime - lastFrameTime) * 0.000000001f;
         lastFrameTime = currentTime;
+        System.out.println(Math.sin(deltaTime*1000f));
 
         // friday magic
         try {
